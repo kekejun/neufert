@@ -79,7 +79,7 @@ def extract_chapters(pdf_path, output_dir):
 def create_chapter_index(chapter_info, output_path):
     with open(output_path, 'w', encoding='utf-8') as f:
         for chapter in chapter_info:
-            f.write(f"- {chapter['filename']}\n")
+            f.write(f"- {chapter['filename']}.pdf\n")
             if chapter['subchapters']:
                 for sub in chapter['subchapters']:
                     f.write(f"  - {sub['page']} {sub['title']}\n")
