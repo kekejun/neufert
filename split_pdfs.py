@@ -79,12 +79,10 @@ def extract_chapters(pdf_path, output_dir):
 def create_chapter_index(chapter_info, output_path):
     with open(output_path, 'w', encoding='utf-8') as f:
         for chapter in chapter_info:
+            f.write(f"- {chapter['filename']}\n")
             if chapter['subchapters']:
-                f.write(f"file: {chapter['filename']}\n")
-                f.write("pages:\n")
                 for sub in chapter['subchapters']:
-                    f.write(f"{sub['page']} {sub['title']}\n")
-                f.write("\n")
+                    f.write(f"  - {sub['page']} {sub['title']}\n")
 
 pdf_path = './pdf/Neufert-4th-edition.pdf'
 output_dir = './chapters'
